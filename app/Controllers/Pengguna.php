@@ -36,6 +36,7 @@ class Pengguna extends BaseController
     {
         $pengaduan_perstatus = $this->Mpengaduan->getPengaduanByDetailStatus();
         $masyarakat = $this->Mmasyarakat->findAll();
+
         $data = [
             'title' => 'Masyarakat',
             'masyarakat' => $masyarakat,
@@ -45,13 +46,33 @@ class Pengguna extends BaseController
     }
     public function profile()
     {
+        $id = session()->get('admin_id');
+
         $pengaduan_perstatus = $this->Mpengaduan->getPengaduanByDetailStatus();
+        $pengguna1row = $this->Madmin->where('id_admin', $id)->findAll();
+        if (!$pengguna1row) {
+            return redirect()->back()->with('error', 'Data pengaduan tidak ditemukan');
+        }
+
+        // Karena hasil formulirGet berupa array banyak, kita ambil row pertama
+        $penggunarow1 = $pengguna1row[0];
         $operator = $this->Madmin->getoperator();
         $data = [
             'title' => 'Profile',
             'operator' => $operator,
+            'pengguna1row' => $penggunarow1,
             'pengaduan_perstatus' => $pengaduan_perstatus
         ];
         return view('admin_pages/v_akun_saya', $data);
+    }
+    public function ubah_akun($id_admin)
+    {
+        $data = [
+            'id_admin' => $id_admin,
+            'nama_admin' => $this->request->getVar('nama'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+        ];
+        $this->Madmin->save($data);
+        return redirect()->back()->with('pesansimpan', 'Perubahan Berhasil Disimpan');
     }
 }

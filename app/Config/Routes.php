@@ -25,6 +25,10 @@ $routes->delete('/hapus_instansi/(:segment)', 'Instansi::hapus/$1');
 
 // proses buat akun
 $routes->post('/buatproses', 'Login::proses_buat');
+// proses update password admin
+$routes->post('/update_profile/(:num)', 'Pengguna::ubah_akun/$1');
+
+$routes->post('/buatproses', 'Login::proses_buat');
 // proses login
 $routes->post('/loginproses', 'Login::proses_login');
 $routes->get('/keluar_admin', 'Login::keluar');
