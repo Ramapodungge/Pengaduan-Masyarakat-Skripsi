@@ -17,6 +17,16 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="./assets-home/dist/css/style.css" />
     <style>
+        .header-background {
+            position: absolute;
+            background-color: #f8f9fd;
+            width: 100%;
+            height: 60rem;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
         .hidden {
             display: none;
         }
