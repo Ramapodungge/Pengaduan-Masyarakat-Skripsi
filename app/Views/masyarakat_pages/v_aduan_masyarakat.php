@@ -109,7 +109,24 @@
                             </button>
                             <div class="job-info">
                                 <div class="job-image">
-                                    <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                    <?php if ($adu['nama_kategori'] == 'Layanan Publik'): ?>
+                                        <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                    <?php endif ?>
+                                    <?php if ($adu['nama_kategori'] == 'Infrastruktur dan Fasilitas Umum'): ?>
+                                        <img src="./assets-home/assets/kategori/infrastrruktur.svg" alt="" />
+                                    <?php endif ?>
+                                    <?php if ($adu['nama_kategori'] == 'Pendidikan'): ?>
+                                        <img src="./assets-home/assets/kategori/pendidikan.svg" alt="" />
+                                    <?php endif ?>
+                                    <?php if ($adu['nama_kategori'] == 'Kesehatan'): ?>
+                                        <img src="./assets-home/assets/kategori/kesehatan.svg" alt="" />
+                                    <?php endif ?>
+                                    <?php if ($adu['nama_kategori'] == 'Pelayanan Pemerintah'): ?>
+                                        <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                    <?php endif ?>
+                                    <?php if ($adu['nama_kategori'] == 'Keamanan dan Ketertiban'): ?>
+                                        <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                    <?php endif ?>
                                 </div>
                                 <div class="job-info-inner">
                                     <h5 class="job-title">
