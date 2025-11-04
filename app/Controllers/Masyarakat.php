@@ -454,4 +454,18 @@ class Masyarakat extends BaseController
         // Menggunakan helper download bawaan CI4
         return $this->response->download($filePath, null);
     }
+
+    public function panduan()
+    {
+        // Path ke file di folder public/documents
+        $filePath = FCPATH . 'panduan/panduan-pengaduan.pdf';
+
+        // Periksa apakah file ada
+        if (!file_exists($filePath)) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+
+        // Menggunakan helper download bawaan CI4
+        return $this->response->download($filePath, null);
+    }
 }

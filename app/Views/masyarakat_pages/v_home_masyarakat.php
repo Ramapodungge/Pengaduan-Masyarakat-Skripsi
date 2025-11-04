@@ -29,7 +29,7 @@
                                 role="button"><i class="fas fa-pencil"></i> Ajukan Aduan Sekarang</a>
                             <a
                                 class="btn btn-cultured fw-semiBold py-12 px-34 rounded-pill"
-                                href="panduan"
+                                href="panduanfile"
                                 role="button"><i class="fas fa-file"></i> Lihat Panduan</a>
                         </div>
                         <!-- /.btn-discover-now and watch-video -->

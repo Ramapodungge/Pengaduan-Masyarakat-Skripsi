@@ -226,7 +226,7 @@
 
                             <input
                                 type="submit"
-                                value="Log In"
+                                value="Sign Up"
                                 class="btn text-white btn-block btn-primary"
                                 id="submitBtn" onchange="toggleSubmitButton()" />
                             </form>
