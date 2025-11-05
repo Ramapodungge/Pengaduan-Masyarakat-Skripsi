@@ -286,4 +286,25 @@ class AduanAdmin extends BaseController
             return redirect()->to(base_url('masuk_admin'));
         }
     }
+    public function viewfilter()
+
+    {
+        if (session()->has('logged_in') and session()->get('logged_in') == true) {
+            $instansi_id = session()->get('instansi_id');
+            $pengaduan_perstatus = $this->Mpengaduan->getPengaduanByDetailStatus();
+            $allpengaduan = $this->Mpengaduan->semuaPengaduan();
+            $allpengaduanOP = $this->Mpengaduan->semuaPengaduanOP($instansi_id);
+            $data = [
+                'title' => 'Filter Pengaduan',
+                'pengaduan_perstatus' => $pengaduan_perstatus,
+                'pengaduan' => $allpengaduan,
+                'pengaduanOP' => $allpengaduanOP
+
+            ];
+            return view('admin_pages/v_pengaduan_laporan_filter', $data);
+        } else {
+            session()->setFlashdata('pesanlogindulu', 'Anda Harus Login');
+            return redirect()->to(base_url('masuk_admin'));
+        }
+    }
 }

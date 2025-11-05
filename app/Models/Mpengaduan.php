@@ -32,7 +32,7 @@ class Mpengaduan extends Model
         $builder->join('masyarakat', 'masyarakat.nik = pengaduan.id_masyarakat');
         $builder->join('kategori_pengaduan', 'kategori_pengaduan.id_kategori = pengaduan.id_kategori');
         $builder->join('instansi', 'instansi.id_instansi = pengaduan.id_instansi');
-        $builder->orderBy('pengaduan.created_at', 'DESC');
+        $builder->orderBy('pengaduan.id_pengaduan', 'DESC');
         $query = $builder->get();
         return $query->getResultArray();
     }
@@ -312,5 +312,52 @@ class Mpengaduan extends Model
         }
         // Menghitung jumlah total data pengaduan yang sesuai dengan kriteria pencarian
         return $builder->countAllResults();
+    }
+
+
+    // 🔥 Fungsi untuk filter berdasarkan bulan dan tahun
+    public function getAllWithJoins()
+    {
+        return $this->db->table($this->table)
+            ->select('pengaduan.*, masyarakat.nama_pengadu as nama_masyarakat, kategori_pengaduan.nama_kategori as nama_kategori, instansi.nama_instansi as nama_instansi')
+            ->join('masyarakat', 'masyarakat.nik = pengaduan.id_masyarakat', 'left')
+            ->join('kategori_pengaduan', 'kategori_pengaduan.id_kategori = pengaduan.id_kategori', 'left')
+            ->join('instansi', 'instansi.id_instansi = pengaduan.id_instansi', 'left')
+            ->orderBy('pengaduan.created_at', 'DESC')
+            ->get()->getResultArray();
+    }
+    // Fungsi filter yang aman terhadap input kosong/tipe string
+    public function filterByMonthYear($bulan = null, $tahun = null)
+    {
+        $builder = $this->db->table($this->table)
+            ->select('pengaduan.*, masyarakat.nama_pengadu as nama_masyarakat, kategori_pengaduan.nama_kategori as nama_kategori, instansi.nama_instansi as nama_instansi')
+            ->join('masyarakat', 'masyarakat.nik = pengaduan.id_masyarakat', 'left')
+            ->join('kategori_pengaduan', 'kategori_pengaduan.id_kategori = pengaduan.id_kategori', 'left')
+            ->join('instansi', 'instansi.id_instansi = pengaduan.id_instansi', 'left');
+
+        // Normalisasi input: kosong -> null, else cast to int
+        if ($bulan !== null && $bulan !== '') {
+            // accept '01'..'12' or '1'..'12'
+            $bulanInt = (int) $bulan;
+            if ($bulanInt >= 1 && $bulanInt <= 12) {
+                $builder->where('MONTH(pengaduan.created_at)', $bulanInt);
+            } else {
+                // invalid month -> force no results (optional) or ignore
+                $builder->where('1', '0'); // akan menghasilkan empty set
+            }
+        }
+
+        if ($tahun !== null && $tahun !== '') {
+            // cast to int and basic sanity check
+            $tahunInt = (int) $tahun;
+            if ($tahunInt > 1970 && $tahunInt <= (int)date('Y') + 1) {
+                $builder->where('YEAR(pengaduan.created_at)', $tahunInt);
+            } else {
+                // invalid year -> force no results
+                $builder->where('1', '0');
+            }
+        }
+
+        return $builder->orderBy('pengaduan.created_at', 'DESC')->get()->getResultArray();
     }
 }

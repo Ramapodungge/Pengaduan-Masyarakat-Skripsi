@@ -320,10 +320,10 @@
                                 <img src="./assets-home/assets/kategori/kesehatan.svg" alt="" />
                             <?php endif ?>
                             <?php if ($adu['nama_kategori'] == 'Pelayanan Pemerintah'): ?>
-                                <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                <img src="./assets-home/assets/kategori/pemerintahan.svg" alt="" />
                             <?php endif ?>
                             <?php if ($adu['nama_kategori'] == 'Keamanan dan Ketertiban'): ?>
-                                <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                <img src="./assets-home/assets/kategori/keamanan.jpeg" alt="" />
                             <?php endif ?>
                         </div>
                         <div class="job-info-inner">

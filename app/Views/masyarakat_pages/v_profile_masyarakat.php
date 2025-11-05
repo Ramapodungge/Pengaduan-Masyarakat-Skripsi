@@ -97,10 +97,10 @@ function merubah_tanggal($tgl)
                                                 <img src="./assets-home/assets/kategori/kesehatan.svg" alt="" />
                                             <?php endif ?>
                                             <?php if ($adu['nama_kategori'] == 'Pelayanan Pemerintah'): ?>
-                                                <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                                <img src="./assets-home/assets/kategori/pemerintahan.svg" alt="" />
                                             <?php endif ?>
                                             <?php if ($adu['nama_kategori'] == 'Keamanan dan Ketertiban'): ?>
-                                                <img src="./assets-home/assets/kategori/layananpublik.svg" alt="" />
+                                                <img src="./assets-home/assets/kategori/keamanan.jpeg" alt="" />
                                             <?php endif ?>
                                         </div>
                                         <div class="job-info-inner">
@@ -207,7 +207,7 @@ function merubah_tanggal($tgl)
                 <div class="d-grid gap-34 bg-white p-20 py-43 rounded-20 shadow-2">
                     <div class="d-grid text-center gap-34 mx-auto">
                         <img
-                            src="./assets-home/assets/job-logo-image-115x115.png"
+                            src="https://ui-avatars.com/api/?name=<?= esc($pengguna1row['nama_pengadu']) ?>"
                             class="img-avatar mx-auto rounded-pill"
                             alt="job-logo-1" />
                         <!-- /.company-image -->

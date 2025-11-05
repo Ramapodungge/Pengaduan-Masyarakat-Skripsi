@@ -208,29 +208,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="d-flex mb-3 align-items-center">
+                                        <label class="control control--checkbox mb-0"><span class="caption">Apakah anda Warga Kecamatan Kabila ?</span>
+                                            <input type="checkbox" name="warga_kabila" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+                                    <div class="d-flex mb-4 align-items-center">
+                                        <label class="control control--checkbox mb-0"><span class="caption">Saya telah membaca dan menyetujui Syarat dan Ketentuan Layanan</span>
+                                            <input type="checkbox" name="setuju" id="setuju" onchange="toggleSubmitButton()" />
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </div>
+
+                                    <input
+                                        type="submit"
+                                        value="Sign Up"
+                                        class="btn text-white btn-block btn-primary"
+                                        id="submitBtn" onchange="toggleSubmitButton()" />
+                                </form>
+                                <small>Sudah Punya Akun? Login <a href="masuk_masyarakat">Disini</a></small>
                             </div>
 
 
-                            <div class="d-flex mb-3 align-items-center">
-                                <label class="control control--checkbox mb-0"><span class="caption">Apakah anda Warga Kecamatan Kabila ?</span>
-                                    <input type="checkbox" name="warga_kabila" />
-                                    <div class="control__indicator"></div>
-                                </label>
-                            </div>
-                            <div class="d-flex mb-4 align-items-center">
-                                <label class="control control--checkbox mb-0"><span class="caption">Saya telah membaca dan menyetujui Syarat dan Ketentuan Layanan</span>
-                                    <input type="checkbox" name="setuju" id="setuju" onchange="toggleSubmitButton()" />
-                                    <div class="control__indicator"></div>
-                                </label>
-                            </div>
-
-                            <input
-                                type="submit"
-                                value="Sign Up"
-                                class="btn text-white btn-block btn-primary"
-                                id="submitBtn" onchange="toggleSubmitButton()" />
-                            </form>
-                            <small>Sudah Punya Akun? Login <a href="masuk_masyarakat">Disini</a></small>
                         </div>
                     </div>
                 </div>

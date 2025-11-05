@@ -59,6 +59,7 @@ function formatTanggalIndonesiaWITA($datetime)
                                     <table id="datatable" class="table table-bordered ">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Pengadu</th>
                                                 <th>Judul</th>
                                                 <th>IsI</th>
@@ -67,9 +68,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $no = 1;
                                             foreach ($pengaduan as $adu):
                                             ?>
                                                 <tr>
+                                                    <td><?= $no++ ?></td>
                                                     <td> <?php if ($adu['tipe_aduan'] == 'Anonim') {
                                                                 echo "Anonim";
                                                             } else {
@@ -97,6 +100,7 @@ function formatTanggalIndonesiaWITA($datetime)
                                     <table id="datatable" class="table table-bordered ">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Pengadu</th>
                                                 <th>Judul</th>
                                                 <th>IsI</th>
@@ -105,9 +109,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $no = 1;
                                             foreach ($pengaduanOP as $adu):
                                             ?>
                                                 <tr>
+                                                    <td><?= $no++ ?></td>
                                                     <td> <?php if ($adu['tipe_aduan'] == 'Anonim') {
                                                                 echo "Anonim";
                                                             } else {

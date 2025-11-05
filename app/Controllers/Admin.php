@@ -144,4 +144,27 @@ class Admin extends BaseController
             return redirect()->to(base_url('masuk_admin'));
         }
     }
+
+    public function filter()
+    {
+        $mpdf = new \Mpdf\Mpdf(['orientation' => 'P']);
+        $bulan = $this->request->getGet('bulan');
+        $tahun = $this->request->getGet('tahun');
+
+
+
+        if ($bulan || $tahun) {
+            $data['pengaduan'] = $this->Mpengaduan->filterByMonthYear($bulan, $tahun);
+        } else {
+            $data['pengaduan'] = $this->Mpengaduan->getAllWithJoins();
+        }
+
+        $data['bulan'] = $bulan;
+        $data['tahun'] = $tahun;
+
+        $html = view('laporan/filter_pengaduan', $data);
+        $mpdf->WriteHTML($html);
+        $this->response->setHeader('Content-Type', 'application/pdf');
+        $mpdf->Output('Surat Pernyataan.pdf', 'I');
+    }
 }

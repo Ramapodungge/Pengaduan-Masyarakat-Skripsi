@@ -203,8 +203,14 @@
                             <li class="menu-title mt-2">Laporan</li>
                             <li class="<?= $title === "Laporan Pengaduan"  ? ' menuitem-active' : '' ?>">
                                 <a href="laporan/pengaduan_laporan" class="tp-link <?= $title === "Laporan Pengaduan"  ? 'active' : '' ?>">
-                                    <i data-feather="users"></i>
+                                    <i data-feather="airplay"></i>
                                     <span>Laporan Pengaduan </span>
+                                </a>
+                            </li>
+                            <li class="<?= $title === "Filter Pengaduan"  ? ' menuitem-active' : '' ?>">
+                                <a href="laporan/filter_pengaduan" class="tp-link <?= $title === "Filter Pengaduan"  ? 'active' : '' ?>">
+                                    <i data-feather="archive"></i>
+                                    <span>Filter Pengaduan </span>
                                 </a>
                             </li>
                         <?php endif ?>

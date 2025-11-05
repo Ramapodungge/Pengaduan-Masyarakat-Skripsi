@@ -64,6 +64,7 @@ function formatTanggalIndonesiaWITA($datetime)
                                     <table id="datatable3" class="table table-bordered nowrap">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Pengadu</th>
                                                 <th>Judul</th>
                                                 <th>Action</th>
@@ -71,9 +72,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $no = 1;
                                             foreach ($dialokasi as $alo):
                                             ?>
                                                 <tr>
+                                                    <td><?= $no++ ?></td>
                                                     <td><?php if ($alo['tipe_aduan'] == 'Anonim') {
                                                             echo "Anonim";
                                                         } else {
@@ -99,6 +102,7 @@ function formatTanggalIndonesiaWITA($datetime)
                                     <table id="datatable4" class="table table-bordered nowrap">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Pengadu</th>
                                                 <th>Judul</th>
                                                 <th>Action</th>
@@ -106,9 +110,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $no = 1;
                                             foreach ($dalamproses as $dal):
                                             ?>
                                                 <tr>
+                                                    <td><?= $no++ ?></td>
                                                     <td><?php if ($dal['tipe_aduan'] == 'Anonim') {
                                                             echo "Anonim";
                                                         } else {
@@ -134,6 +140,7 @@ function formatTanggalIndonesiaWITA($datetime)
                                     <table id="datatable5" class="table table-bordered nowrap">
                                         <thead>
                                             <tr>
+                                                <th>No</th>
                                                 <th>Nama Pengadu</th>
                                                 <th>Judul</th>
                                                 <th>Action</th>
@@ -141,9 +148,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                         </thead>
                                         <tbody>
                                             <?php
+                                            $no = 1;
                                             foreach ($selesai as $sel):
                                             ?>
                                                 <tr>
+                                                    <td><?= $no++ ?></td>
                                                     <td><?php if ($sel['tipe_aduan'] == 'Anonim') {
                                                             echo "Anonim";
                                                         } else {

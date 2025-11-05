@@ -42,6 +42,7 @@ $routes->get('/instansi', 'Instansi::index');
 $routes->get('/kategori', 'Kategori::index');
 $routes->get('/operator', 'Pengguna::index');
 $routes->get('/laporan/pengaduan_laporan', 'AduanAdmin::viewlaporan');
+$routes->get('/laporan/filter_pengaduan', 'AduanAdmin::viewfilter');
 
 //proses pengaduan
 $routes->post('/terima_pengaduan/(:num)', 'AduanAdmin::proses_terima/$1');
@@ -82,6 +83,7 @@ $routes->get('/Pengaduan/search', 'Masyarakat::search');
 $routes->get('/laporan_masyarakat', 'Admin::laporan_masyarakat');
 $routes->get('/laporan_pengaduan', 'Admin::laporan_pengaduan');
 $routes->get('/formulir_pengaduan/(:num)', 'Admin::formulir/$1');
+$routes->get('laporan/filter', 'Admin::filter');
 
 //untuk link download
 $routes->get('download_bukti/(:any)', 'Masyarakat::download/$1');
