@@ -150,14 +150,27 @@ class Admin extends BaseController
         $mpdf = new \Mpdf\Mpdf(['orientation' => 'P']);
         $bulan = $this->request->getGet('bulan');
         $tahun = $this->request->getGet('tahun');
+        $instansi_id = session()->get('instansi_id');
 
+        if (session()->get('level') == 'admin') {
 
-
-        if ($bulan || $tahun) {
-            $data['pengaduan'] = $this->Mpengaduan->filterByMonthYear($bulan, $tahun);
-        } else {
-            $data['pengaduan'] = $this->Mpengaduan->getAllWithJoins();
+            if ($bulan || $tahun) {
+                $data['pengaduan'] = $this->Mpengaduan->filterByMonthYear($bulan, $tahun);
+            } else {
+                $data['pengaduan'] = $this->Mpengaduan->getAllWithJoins();
+            }
         }
+        if (session()->get('level') == 'operator') {
+
+            if ($bulan || $tahun) {
+                $data['pengaduan'] = $this->Mpengaduan->filterByMonthYearOP($bulan, $tahun, $instansi_id);
+            } else {
+
+                $data['pengaduan'] = $this->Mpengaduan->semuaPengaduanOP($instansi_id);
+            }
+        }
+
+
 
         $data['bulan'] = $bulan;
         $data['tahun'] = $tahun;

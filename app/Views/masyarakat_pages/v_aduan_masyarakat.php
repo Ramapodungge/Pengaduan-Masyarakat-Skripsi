@@ -209,6 +209,11 @@
                                         <?= $adu['status'] ?>
                                     </div>
                                 <?php endif ?>
+                                <a href="detail_aduan_masyarakat/<?= $adu['id_pengaduan'] ?>">
+                                    <button class="btn btn-rounded btn-book bg-primary">
+                                        <i class="fas fa-search"></i> Detail
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     <?php

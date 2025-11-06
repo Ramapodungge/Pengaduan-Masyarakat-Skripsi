@@ -239,6 +239,12 @@
                                     <span>Laporan Pengaduan </span>
                                 </a>
                             </li>
+                            <li class="<?= $title === "Filter Pengaduan"  ? ' menuitem-active' : '' ?>">
+                                <a href="laporan/filter_pengaduan" class="tp-link <?= $title === "Filter Pengaduan"  ? 'active' : '' ?>">
+                                    <i data-feather="archive"></i>
+                                    <span>Filter Pengaduan </span>
+                                </a>
+                            </li>
                         <?php endif ?>
                         <!-- batas sidebar operator -->
 

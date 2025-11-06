@@ -360,4 +360,38 @@ class Mpengaduan extends Model
 
         return $builder->orderBy('pengaduan.created_at', 'DESC')->get()->getResultArray();
     }
+    public function filterByMonthYearOP($bulan = null, $tahun = null, $instansi_id)
+    {
+        $builder = $this->db->table($this->table)
+            ->select('pengaduan.*, masyarakat.nama_pengadu as nama_masyarakat, kategori_pengaduan.nama_kategori as nama_kategori, instansi.nama_instansi as nama_instansi, instansi.id_instansi')
+            ->join('masyarakat', 'masyarakat.nik = pengaduan.id_masyarakat', 'left')
+            ->join('kategori_pengaduan', 'kategori_pengaduan.id_kategori = pengaduan.id_kategori', 'left')
+            ->join('instansi', 'instansi.id_instansi = pengaduan.id_instansi', 'left')
+            ->where('pengaduan.id_instansi', $instansi_id);
+
+        // Normalisasi input: kosong -> null, else cast to int
+        if ($bulan !== null && $bulan !== '') {
+            // accept '01'..'12' or '1'..'12'
+            $bulanInt = (int) $bulan;
+            if ($bulanInt >= 1 && $bulanInt <= 12) {
+                $builder->where('MONTH(pengaduan.created_at)', $bulanInt);
+            } else {
+                // invalid month -> force no results (optional) or ignore
+                $builder->where('1', '0'); // akan menghasilkan empty set
+            }
+        }
+
+        if ($tahun !== null && $tahun !== '') {
+            // cast to int and basic sanity check
+            $tahunInt = (int) $tahun;
+            if ($tahunInt > 1970 && $tahunInt <= (int)date('Y') + 1) {
+                $builder->where('YEAR(pengaduan.created_at)', $tahunInt);
+            } else {
+                // invalid year -> force no results
+                $builder->where('1', '0');
+            }
+        }
+
+        return $builder->orderBy('pengaduan.created_at', 'DESC')->get()->getResultArray();
+    }
 }

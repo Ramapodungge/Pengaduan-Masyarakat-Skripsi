@@ -62,7 +62,11 @@ function formatTanggalIndonesiaWITA($datetime)
                                                         } else {
                                                             echo $adu['nama_pengadu'];
                                                         } ?> - <i data-feather="calendar"></i> <?= formatTanggalIndonesiaWITA($adu['created_at']) ?></h6>
-                        <h6><i data-feather="map-pin"></i> Tujuan : <?= $adu['nama_instansi'] ?> - <i data-feather="layers"></i> Status : <span class="text-info"><?= $adu['status'] ?></span>
+                        <h6><?php if ($adu['tipe_aduan'] == 'Anonim') {
+                                echo "-";
+                            } else {
+                                echo 'NIK:' . $adu['nik'];
+                            } ?> - <i data-feather="map-pin"></i> Tujuan : <?= $adu['nama_instansi'] ?> - <i data-feather="layers"></i> Status : <span class="text-info"><?= $adu['status'] ?></span>
                         </h6>
                         <hr>
                         <p><?= $adu['isi'] ?></p>

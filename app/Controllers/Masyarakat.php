@@ -196,31 +196,26 @@ class Masyarakat extends BaseController
 
     public function detail_aduan($id_aduan)
     {
-        if (session()->has('logged_in') and session()->get('logged_in') == true) {
 
 
-            $pengaduan = $this->Mpengaduan->getAll($id_aduan);
-            $timline = $this->Mhistori->getHistoris($id_aduan);
-            $feedback = $this->Mfeedback->getFeedback($id_aduan);
-            $cek_rowfeedback = $this->Mfeedback->where('id_pengaduan', $id_aduan)->get()->getNumRows();
-            $ambil_idfeedback = $this->Mfeedback->where('id_pengaduan', $id_aduan)->get()->getResultArray();
+        $pengaduan = $this->Mpengaduan->getAll($id_aduan);
+        $timline = $this->Mhistori->getHistoris($id_aduan);
+        $feedback = $this->Mfeedback->getFeedback($id_aduan);
+        $cek_rowfeedback = $this->Mfeedback->where('id_pengaduan', $id_aduan)->get()->getNumRows();
+        $ambil_idfeedback = $this->Mfeedback->where('id_pengaduan', $id_aduan)->get()->getResultArray();
 
 
-            $data = [
-                'title' => "Detail Aduan",
-                'pengaduan' => $pengaduan,
-                'timline' => $timline,
-                'feedback' => $feedback,
-                'cek_row' => $cek_rowfeedback,
-                'id_pengaduan' => $id_aduan,
+        $data = [
+            'title' => "Detail Aduan",
+            'pengaduan' => $pengaduan,
+            'timline' => $timline,
+            'feedback' => $feedback,
+            'cek_row' => $cek_rowfeedback,
+            'id_pengaduan' => $id_aduan,
 
 
-            ];
-            return view('masyarakat_pages/v_detail_aduan_masyarakat.php', $data);
-        } else {
-            session()->setFlashdata('pesanlogindulu', 'Anda Harus Login');
-            return redirect()->to(base_url('masuk_masyarakat'));
-        }
+        ];
+        return view('masyarakat_pages/v_detail_aduan_masyarakat.php', $data);
     }
     public function login()
     {

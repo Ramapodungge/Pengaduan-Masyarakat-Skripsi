@@ -200,23 +200,25 @@
                             <h5 class="card-title mb-0">Jumlah Aduan Per Kategori</h5>
 
                         </div>
-                        <div class="card-body">
-                            <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>Nama Kategori</th>
-                                        <th>Jumlah Aduan</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($berdasarkan_kategoriOP as $kat): ?>
+                        <div class="card-body ">
+                            <div class="dt-responsive table-responsive nowrap">
+                                <table id="datatable" class="table table-bordered ">
+                                    <thead>
                                         <tr>
-                                            <td><?= $kat['nama_kategori'] ?></td>
-                                            <td><?= $kat['jumlah_pengaduan'] ?></td>
+                                            <th>Nama Kategori</th>
+                                            <th>Jumlah Aduan</th>
                                         </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($berdasarkan_kategoriOP as $kat): ?>
+                                            <tr>
+                                                <td><?= $kat['nama_kategori'] ?></td>
+                                                <td><?= $kat['jumlah_pengaduan'] ?></td>
+                                            </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,22 +230,24 @@
                     </div>
 
                     <div class="card-body">
-                        <table id="datatable" class="table table-bordered dt-responsive table-responsive nowrap">
-                            <thead>
-                                <tr>
-                                    <th>Nama Lengkap</th>
-                                    <th>Jumlah Aduan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($berdasarkan_masyarakatOP as $mas): ?>
+                        <div class="dt-responsive table-responsive nowrap">
+                            <table id="datatable2" class="table table-bordered">
+                                <thead>
                                     <tr>
-                                        <td><?= $mas['nama_pengadu'] ?></td>
-                                        <td><?= $mas['jumlah_pengaduan'] ?></td>
+                                        <th>Nama Lengkap</th>
+                                        <th>Jumlah Aduan</th>
                                     </tr>
-                                <?php endforeach ?>
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($berdasarkan_masyarakatOP as $mas): ?>
+                                        <tr>
+                                            <td><?= $mas['nama_pengadu'] ?></td>
+                                            <td><?= $mas['jumlah_pengaduan'] ?></td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -49,12 +49,13 @@ function formatTanggalIndonesiaWITA($datetime)
                     perkembangannya.</div>
             </div>
             <!-- /.heading-header -->
-
-            <a class="position-absolute btn btn-rounded btn-white top-0 top-md-50 top-md start-0 translate-middle-md-y p-10 mt-15 mt-md-0"
-                href="profile">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <!-- /.btn-back -->
+            <?php if (session()->has('logged_in') and session()->get('logged_in') == true) : ?>
+                <a class="position-absolute btn btn-rounded btn-white top-0 top-md-50 top-md start-0 translate-middle-md-y p-10 mt-15 mt-md-0"
+                    href="profile">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <!-- /.btn-back -->
+            <?php endif ?>
         </div>
     </div>
     <!-- /.container -->
@@ -120,50 +121,52 @@ function formatTanggalIndonesiaWITA($datetime)
                 </div>
             <?php endforeach ?>
             <div class="col-12 col-lg-12 col-xl-4">
-                <div class="bg-white p-20 p-md-34 p-xxl-43 rounded-20 shadow-2">
-                    <h2 class="heading-section-4 text-dark mb-0 mb-3">Feedback</h2>
-                    <?php if ($cek_row == 1) :
-                        foreach ($feedback as $feed) :
-                            echo $feed['feedback'];
+                <?php if (session()->has('logged_in') and session()->get('logged_in') == true) : ?>
+                    <div class="bg-white p-20 p-md-34 p-xxl-43 rounded-20 shadow-2">
+                        <h2 class="heading-section-4 text-dark mb-0 mb-3">Feedback</h2>
+                        <?php if ($cek_row == 1) :
+                            foreach ($feedback as $feed) :
+                                echo $feed['feedback'];
 
-                    ?>
-                            <div class="mt-5">
-                                <button type="button" class="btn btn-primary col-4 rounded-20" id="feedbackButton"> Edit Pesan</button>
-                            </div>
-                            <div id="feedbackForm" style="display:none;">
-                                <form action="proses_edit_feedback/<?= $feed['id_feedback']; ?>" method="post" class="row">
-                                    <?= csrf_field() ?>
-                                    <div class="col-12 mt-5">
-                                        <label for="textareaAboutyou" class="form-label">Masukan Feedback</label>
-                                        <input type="hidden" value="<?= $id_pengaduan ?>" name="id_pengaduan">
-                                        <textarea name="feed" class="form-control" id="textareaAboutyou" rows="5"
-                                            placeholder="Type here" required></textarea>
-                                    </div>
-                                    <div class="mt-5">
-                                        <button type="submit" class="btn btn-primary col-6 rounded-20"> Simpan</button>
-                                        <button type="button" class="btn bg-mikado-yellow text-white col-4 rounded-20" id="closeButton"> Tutup</button>
+                        ?>
+                                <div class="mt-5">
+                                    <button type="button" class="btn btn-primary col-4 rounded-20" id="feedbackButton"> Edit Pesan</button>
+                                </div>
+                                <div id="feedbackForm" style="display:none;">
+                                    <form action="proses_edit_feedback/<?= $feed['id_feedback']; ?>" method="post" class="row">
+                                        <?= csrf_field() ?>
+                                        <div class="col-12 mt-5">
+                                            <label for="textareaAboutyou" class="form-label">Masukan Feedback</label>
+                                            <input type="hidden" value="<?= $id_pengaduan ?>" name="id_pengaduan">
+                                            <textarea name="feed" class="form-control" id="textareaAboutyou" rows="5"
+                                                placeholder="Type here" required></textarea>
+                                        </div>
+                                        <div class="mt-5">
+                                            <button type="submit" class="btn btn-primary col-6 rounded-20"> Simpan</button>
+                                            <button type="button" class="btn bg-mikado-yellow text-white col-4 rounded-20" id="closeButton"> Tutup</button>
 
-                                    </div>
-                                </form>
-                            </div>
-                    <?php
-                        endforeach;
-                    endif ?>
-                    <?php if ($cek_row == 0) : ?>
-                        <form action="proses_feedback" method="post" class="row">
-                            <?= csrf_field() ?>
-                            <div class="col-12">
-                                <label for="textareaAboutyou" class="form-label">Masukan Feedback</label>
-                                <input type="hidden" value="<?= $id_pengaduan ?>" name="id_pengaduan">
-                                <textarea name="feed" class="form-control" id="textareaAboutyou" rows="5"
-                                    placeholder="Type here" required></textarea>
-                            </div>
-                            <div class="mt-5">
-                                <button type="submit" class="btn btn-primary col-6 rounded-20"> Simpan</button>
-                            </div>
-                        </form>
-                    <?php endif ?>
-                </div>
+                                        </div>
+                                    </form>
+                                </div>
+                        <?php
+                            endforeach;
+                        endif ?>
+                        <?php if ($cek_row == 0) : ?>
+                            <form action="proses_feedback" method="post" class="row">
+                                <?= csrf_field() ?>
+                                <div class="col-12">
+                                    <label for="textareaAboutyou" class="form-label">Masukan Feedback</label>
+                                    <input type="hidden" value="<?= $id_pengaduan ?>" name="id_pengaduan">
+                                    <textarea name="feed" class="form-control" id="textareaAboutyou" rows="5"
+                                        placeholder="Type here" required></textarea>
+                                </div>
+                                <div class="mt-5">
+                                    <button type="submit" class="btn btn-primary col-6 rounded-20"> Simpan</button>
+                                </div>
+                            </form>
+                        <?php endif ?>
+                    </div>
+                <?php endif ?>
 
                 <div class="d-grid d-xl-flex bg-white p-20 p-md-34 p-xxl-43 gap-34 mt-20 rounded-20 shadow-2">
                     <div class="d-flex align-items-center">
