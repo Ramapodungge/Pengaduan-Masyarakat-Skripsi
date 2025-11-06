@@ -157,7 +157,7 @@
                             <a class="nav-link <?= $title === "Buat Aduan"  ? 'active' : '' ?>" href="buataduan">Buat Aduan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?= $title === "Panduan"  ? 'active' : '' ?>" href="panduanfile">Panduan</a>
+                            <a class="nav-link <?= $title === "Panduan"  ? 'active' : '' ?>" href="panduanview">Panduan</a>
                         </li>
                     </ul>
                     <!-- /.navbar-nav -->

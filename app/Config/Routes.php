@@ -63,6 +63,7 @@ $routes->get('/aduan_masyarakat', 'Masyarakat::aduan');
 $routes->get('/detail_aduan_masyarakat/(:num)', 'Masyarakat::detail_aduan/$1');
 $routes->get('/buataduan', 'Masyarakat::buat');
 $routes->get('/profile', 'Masyarakat::akunku');
+$routes->get('/panduanview', 'Masyarakat::viewpanduan');
 $routes->get('/panduanfile', 'Masyarakat::panduan');
 
 $routes->get('/masuk_masyarakat', 'Masyarakat::login');

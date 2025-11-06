@@ -463,4 +463,12 @@ class Masyarakat extends BaseController
         // Menggunakan helper download bawaan CI4
         return $this->response->download($filePath, null);
     }
+
+    public function viewpanduan()
+    {
+        $data = [
+            'title' => 'Panduan'
+        ];
+        return view('masyarakat_pages/v_panduan', $data);
+    }
 }
