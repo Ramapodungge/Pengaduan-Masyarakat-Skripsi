@@ -397,6 +397,14 @@ class Masyarakat extends BaseController
             $filefoto = $Berkasfoto->getRandomName();
             $Berkasfoto->move('foto_laporan/', $filefoto);
         }
+        $email_tujuan = session()->get('email');
+        $email = service('email');
+        $email->setTo($email_tujuan);
+        $email->setFrom('admin@bonebolango.com', 'Admin');
+        $email->setSubject('Pesan Admin');
+        $link = base_url("profile");
+        $email->setMessage("Pengaduan Anda telah berhasil diajukan dan menunggu proses verifikasi dari pihak kecamatan. Mohon bersabar, kami akan segera menindaklanjuti laporan Anda. <br> klik link berikut untuk mengecek detail aduan kamu: <a href='$link'>$link</a>");
+        $email->send();
         $data = [
             'judul' => $judul,
             'isi' => $isi,
