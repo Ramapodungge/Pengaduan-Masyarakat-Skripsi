@@ -546,11 +546,11 @@
                     data: values,
                     backgroundColor: [
                         '#0c7c66ff', '#11517cff', '#5d127aff',
-                        '#bb9911ff', '#83450fff', '#79160bff'
+                        '#79160bff', '#83450fff', '#bb9911ff'
                     ],
                     borderColor: [
                         '#0c7c66ff', '#11517cff', '#5d127aff',
-                        '#bb9911ff', '#83450fff', '#79160bff'
+                        '#79160bff', '#83450fff', '#bb9911ff'
                     ],
                     borderWidth: 1
                 }]

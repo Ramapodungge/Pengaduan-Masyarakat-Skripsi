@@ -88,3 +88,9 @@ $routes->get('laporan/filter', 'Admin::filter');
 
 //untuk link download
 $routes->get('download_bukti/(:any)', 'Masyarakat::download/$1');
+
+//LUPA PASSWORD
+$routes->get('forgot-password', 'Auth::forgotPassword');
+$routes->post('forgot-password', 'Auth::sendResetLink');
+$routes->get('reset-password/(:any)', 'Auth::resetPassword/$1');
+$routes->post('reset-password', 'Auth::updatePassword');

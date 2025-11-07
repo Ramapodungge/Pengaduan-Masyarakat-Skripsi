@@ -83,7 +83,7 @@
                                                         <label for="kelurahan" class="form-label">Desa</label>
                                                         <select name="instansi" id="kelurahan" class="form-control">
                                                             <?php foreach ($instansi as $inst):
-                                                                if ($inst['nama_instansi'] != 'Kecamatan'):
+                                                                if ($inst['nama_instansi'] != 'Kecamatan Kabila Bone'):
                                                             ?>
                                                                     <option value="<?= $inst['id_instansi']; ?>"><?= $inst['nama_instansi']; ?></option>
                                                             <?php

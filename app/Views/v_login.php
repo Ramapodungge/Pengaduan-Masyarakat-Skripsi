@@ -100,7 +100,6 @@
                                                 <div class="text-center text-muted">
                                                     <p class="mb-0">Belum Punya Akun ?<a class='text-primary ms-2 fw-medium' href='buat_akun'>Buat Akun</a></p>
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>

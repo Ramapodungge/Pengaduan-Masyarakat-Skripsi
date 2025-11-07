@@ -46,8 +46,8 @@ class PengaduanSeeder extends Seeder
             // Insert pengaduan
             $this->db->table('pengaduan')->insert([
                 'id_masyarakat' => $masy['nik'],
-                'id_kategori'   => rand(1, 6),
-                'id_instansi'   => rand(1, 6),
+                'id_kategori'   => rand(1, 8),
+                'id_instansi'   => rand(1, 13),
                 'judul'         => $faker->sentence(4),
                 'isi'           => $faker->paragraph(),
                 'foto'          => 'blank.jpg',

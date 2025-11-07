@@ -19,16 +19,19 @@
                     <table id="datatable" class="table table-bordered table-responsive nowrap">
                         <thead>
                             <tr>
+                                <th>No</th>
                                 <th>Nama Instansi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
+                            $no = 1;
                             foreach ($instansi as $ins):
-                                if ($ins['nama_instansi'] != 'Kecamatan'):
+                                if ($ins['nama_instansi'] != 'Kecamatan Kabila Bone'):
                             ?>
                                     <tr>
+                                        <td><?= $no++; ?></td>
                                         <td><?= $ins['nama_instansi'] ?></td>
                                         <td class="text-end">
                                             <a aria-label="anchor" class="btn btn-sm bg-primary-subtle me-1" data-bs-original-title="Edit" data-bs-toggle="modal" data-bs-target="#bs-example-modal-center<?= $ins['id_instansi'] ?>">
