@@ -31,11 +31,12 @@ function merubah_tanggal($tgl)
     <div class="container-xxl">
         <div class="position-relative py-5 py-lg-100">
             <div class="d-grid gap-10 text-center">
-                <h4 class="heading-section-4 text-white mb-0">Panduan</h4>
+                <h4 class="heading-section-4 text-white mb-0">Ruang Suara</h4>
                 <div class="heading-text-2 text-white">
                     <p class="text-white text-decoration-none" href="#">
-                        memberikan petunjuk langkah demi langkah kepada masyarakat agar dapat menggunakan aplikasi pengaduan dengan benar, cepat, dan tanpa kebingungan.
-                        Dengan adanya halaman ini, pengguna (terutama masyarakat umum) bisa memahami alur penggunaan sistem tanpa perlu bantuan admin.
+                        Menyampaikan keluhan kini lebih mudah!
+                        Aplikasi Pengaduan Masyarakat Kabila Bone hadir untuk mempercepat penanganan laporan, meningkatkan transparansi, dan mewujudkan pelayanan publik yang lebih responsif.
+
                     </p>
                 </div>
             </div>
@@ -47,9 +48,9 @@ function merubah_tanggal($tgl)
     <div class="container-xxl mt-lg-100 mb-100">
         <div class="row">
             <div class="col-lg-9 col-md-12">
-                <h3>Ruang Suara</h3>
-                <p style="text-align: justify;">Menyampaikan keluhan kini lebih mudah!
-                    Aplikasi Pengaduan Masyarakat Kabila Bone hadir untuk mempercepat penanganan laporan, meningkatkan transparansi, dan mewujudkan pelayanan publik yang lebih responsif.</p>
+                <h3>Panduan</h3>
+                <p style="text-align: justify;"> memberikan petunjuk langkah demi langkah kepada masyarakat agar dapat menggunakan aplikasi pengaduan dengan benar, cepat, dan tanpa kebingungan.
+                    Dengan adanya halaman ini, pengguna (terutama masyarakat umum) bisa memahami alur penggunaan sistem tanpa perlu bantuan admin.</p>
 
                 <h3>Langkah-Langkah Melakukan Pengaduan</h3>
                 <div class="mt-20">
