@@ -45,7 +45,7 @@
                 <div class="col-12 col-lg-6 col-xl-7 order-1 order-lg-2">
                     <div class="position-relative h-lg-100">
                         <img
-                            src="./assets-home/assets/pages/index/header/heroImage.png"
+                            src="./assets-home/assets/pages/index/header/camat.png"
                             class="hero-image-img"
                             alt="" />
                         <!-- /. hero-image -->
